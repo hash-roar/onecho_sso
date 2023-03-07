@@ -12,6 +12,7 @@ type App struct {
 	LogSavePath     string
 	LogSaveName     string
 	LogFileExt      string
+	LogLevel        string
 	TimeFormat      string
 	AdminPass       string
 }

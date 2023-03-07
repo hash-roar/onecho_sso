@@ -6,6 +6,7 @@ import (
 	"onecho_sso_backend/pkg/setting"
 
 	"github.com/jinzhu/gorm"
+	_ "github.com/lib/pq"
 )
 
 var db *gorm.DB
@@ -18,7 +19,6 @@ func Setup() {
 		setting.DatabaseSetting.DbName,
 		setting.DatabaseSetting.Port,
 		setting.DatabaseSetting.Password)
-	fmt.Println(dsn)
 	db, err = gorm.Open(setting.DatabaseSetting.Type, dsn)
 	if err != nil {
 		log.Fatalf("models.Setup err: %v", err)

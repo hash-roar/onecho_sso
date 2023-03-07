@@ -14,7 +14,7 @@ import (
 
 func init() {
 	setting.Setup()
-	logging.Setup()
+	// logging.Setup()
 	models.Setup()
 	gredis.Setup()
 }
@@ -23,8 +23,8 @@ func main() {
 	// gin.SetMode()
 	gin.SetMode(setting.ServerSetting.RunMode)
 	router := routers.InitRouter()
+
 	listen := fmt.Sprintf("%s", setting.ServerSetting.HttpPort)
-	logging.Info("start listen on: ", listen)
 
 	server := &http.Server{
 		Addr:           listen,
@@ -33,6 +33,7 @@ func main() {
 		WriteTimeout:   setting.ServerSetting.WriteTimeout,
 		MaxHeaderBytes: 1 << 20,
 	}
+	logging.Infof("server listen at [%s]", listen)
 
 	server.ListenAndServe()
 }
