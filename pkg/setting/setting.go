@@ -15,6 +15,8 @@ type App struct {
 	LogLevel        string
 	TimeFormat      string
 	AdminPass       string
+	Email           string
+	EmailAuthToken  string
 }
 
 var AppSetting = &App{}

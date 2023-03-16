@@ -14,7 +14,8 @@ func InitRouter() *gin.Engine {
 
 	authGroup := r.Group("auth")
 	{
-		authGroup.POST("register", api.NewUserRegister)
+		authGroup.POST("register", api.UserRegister)
+		authGroup.POST("reg-email", api.GetRegisterValidationEmail)
 	}
 	return r
 }
